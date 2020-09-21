@@ -19,7 +19,7 @@ class AuthController extends Controller {
     public function login(LoginValidateRequest $request){
 
         if (! $token = auth()->attempt($request->all())) {
-            return response()->json(['error' => 'Either email or password is wrong.'], 401);
+            return response()->json(['error' =>  \config('messages.auth_attempt')], 401);
         }
         return $this->createNewToken($token);
     }
@@ -37,7 +37,7 @@ class AuthController extends Controller {
                 ));
 
         return response()->json([
-            'message' => 'User successfully registered',
+            'message' =>  \config('messages.user_register'),
             'user' => $user
         ], 201);
     }
@@ -49,7 +49,7 @@ class AuthController extends Controller {
      */
     public function logout() {
         auth()->logout();
-        return response()->json(['message' => 'User successfully logged out']);
+        return response()->json(['message' => \config('messages.logout')]);
     }
 
     /**
