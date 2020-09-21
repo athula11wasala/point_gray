@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="card inner-main">
+      <div class="card-header">
+         Discout Detail View
+      </div>
+      <div class="card-body">
+        <div id="table" class="table-editable">
+          <span class="table-add float-right mb-3 mr-2">
+            <a class="text-success" (click)="add()"  style="cursor: hand;cursor: pointer;">
+              <span class="material-icons"  >
+                  add_task
+                  </span>
+            </a>
+          </span>
+          <table class="table table-bordered table-responsive-md table-striped text-center">
+            <tr>
+              <th class="text-center"> Name</th>
+              <th class="text-center">Percentage</th>
+              <th class="text-center">Service</th>
+              <th class="text-center">Action</th>
+            </tr>
+            <tr *ngFor="let order of orderDetail; let id = index">
+              <td>
+                <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(order.id, 'name', $event)" contenteditable="true">{{order.name}}</span>
+              </td>
+              <td>
+                <span contenteditable="true" (keyup)="changeValue(id, 'percentage', $event)" (blur)="updateList(order.id, 'percentage', $event)">{{order.percentage}}</span>
+              </td>
+              <td>
+                <span contenteditable="true" (keyup)="changeValue(id, 'no_of_service', $event)" (blur)="updateList(order.id, 'no_of_service', $event)">{{order.no_of_service}}</span>
+              </td>
+              <td>
+                <span class="table-remove">
+                  <a class="text-success" (click)="add()" style="cursor: hand;cursor: pointer;">
+                      <span class="material-icons"  >
+                          add_task
+                          </span>
+                    </a>&nbsp;
+                    <a  class="text-danger" (click)="remove(order.id)"  style="cursor: hand;cursor: pointer;">
+                      <span  class="material-icons"  >
+                          delete
+                          </span>
+                    </a>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+

@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+    <div class="card inner-main">
+      <div class="card-header">
+        Add Discout   </div>
+      <div class="card-body">
+        <div class="auth-wrapper">
+            <form class="form-signin" [formGroup]="discountForm" (ngSubmit)="onSubmit()">
+                <h3 class="h3 mb-3 font-weight-normal text-center">Add Discount</h3>
+          
+                <!-- Errors -->
+                <div *ngIf="errors?.name" class="alert alert-danger mt-3">
+                    {{ errors?.name }}
+                  
+                </div>
+                <div *ngIf="errors?.percentage" class="alert alert-danger mt-3">
+                  {{ errors?.percentage }}
+                </div>
+                <div *ngIf="errors?.no_of_service" class="alert alert-danger mt-3">
+                    {{ errors?.no_of_service }}
+                </div>
+                
+          
+                <!-- Signup form -->
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <label>Percentage</label>
+                    <input type="text" class="form-control" formControlName="percentage">
+                </div>
+                <div class="form-group">
+                    <label>Service</label>
+                    <input type="text" class="form-control" formControlName="no_of_service">
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Add discount</button>
+            </form>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+  
+
+
